@@ -1,0 +1,91 @@
+<html>
+
+<head>
+	<title>Test Page</title>
+	<link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap-theme.css">
+	<link rel="stylesheet" href="/stylesheets/style.css">
+	<script src="/vendor/jquery/dist/jquery.js"></script>
+	<script src="/vendor/bootstrap/dist/js/bootstrap.js"></script>
+
+
+	<script src="http://auth.127.0.0.1.xip.io:8080/helper.js"></script>
+	<script src="/utils.js"></script>
+</head>
+
+<body>
+
+	<div class="container">
+		<div>Try using the URL: <a target="_blank" href='http://siteA.127.0.0.1.xip.io:3000/'>http://siteA.127.0.0.1.xip.io:3000</a></div>
+		<div>Try using the URL: <a target="_blank" href='http://siteB.127.0.0.1.xip.io:3000/'>http://siteB.127.0.0.1.xip.io:3000</a></div>
+		<div>Auth Site: <a target="_blank" href="http://auth.127.0.0.1.xip.io:8080/">http://auth.127.0.0.1.xip.io:8080/</a></div>
+		<div class="form-group">
+			<form>
+				<label for="txtusername">email</label>
+				<input type="email" id="txtusername" class="form-control" value="johndoe">
+				<label for="txtpassword">password</label>
+				<input type="password" id="txtpassword" class="form-control" value="password">
+				<input type="button" class="btn btn-primary" value="sso.login" onclick="sso.login($('#txtusername').val(), $('#txtpassword').val(), updatestatus);">
+				<!--<input type="button" class="btn btn-success" value="local login" onclick="mylogin($('#txtusername').val(), $('#txtpassword').val(), createCookie);">-->
+				<input type="button" class="btn btn-warning" value="is logged on" onclick="sso.logincheck(updatestatus);">
+			</form>
+		</div>
+		<div>
+			<div id="msg"></div>
+		</div>
+	</div>
+
+	<script>
+		'use strict';
+		
+		function updatestatus(content){
+			console.log('trying to update status with: ' + content);
+			$('#msg').html(content);
+		}
+		
+		(function(){
+			sso.logincheck(updatestatus);
+		})()
+		
+		// let cookiename = 'localauthcookie';
+		// let authendpoint = 'http://auth.127.0.0.1.xip.io:8080/api/authenticate';
+		
+		// function createCookie(name, value, days){
+		// 	var expires = "";
+		// 	if (days) {
+		// 		var date = new Date();
+		// 		date.setTime(date.getTime()+(days*24*60*60*1000));
+		// 		expires = "; expires="+date.toGMTString();
+		// 	}
+		// 	
+		// 	document.cookie = name+"="+value+expires+"; path=/";
+		// }
+		
+		// function mylogin(username, userpassword, callback){
+		// 	console.log('logging in user...' + username + ':' + userpassword);
+		// 	console.log('foobar');
+		// 	$.ajax(
+		// 		{
+		// 			method: 'POST',
+		// 			url: authendpoint,
+		// 			data: { name: username, password: userpassword },
+		// 			xhrFields: {
+		// 				withCredentials: true
+		// 			}
+		// 		}
+		// 	).done( function(msg){
+		// 		createCookie(cookiename, msg.token, 10);
+		// 		//callback('rpauth', msg.token, 1);
+		// 		console.log('you have been logged on');
+		// 		console.log(msg);
+		// 		
+		// 	}).error(function(err){
+		// 		console.error('failed on auth call', err);
+		// 		eraseCookie(cookiename);
+		// 	});
+		// };
+	</script>
+
+</body>
+
+</html>

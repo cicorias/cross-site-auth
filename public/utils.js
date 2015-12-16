@@ -4,10 +4,15 @@ function alertSomething (sMsg) {
   alert(sMsg);
 }
 
-sso.executeOnce(alertSomething, null, "Hello world!!!!", "alert_something");
+//sso.executeOnce(alertSomething, null, "Hello world!!!!", "alert_something");
+
+//sso.logincheck();
 
 
-function submitForm(){
-  $.post('http://localhost:8080/api/authenticat', )
-}
+var username = $('')
+
+// 
+// function submitForm(){
+//   $.post('http://localhost:8080/api/authenticat', )
+// }
 
