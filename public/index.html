@@ -51,43 +51,7 @@
 			sso.logincheck(updatestatus);
 		})()
 		
-		// let cookiename = 'localauthcookie';
-		// let authendpoint = 'http://auth.127.0.0.1.xip.io:8080/api/authenticate';
-		
-		// function createCookie(name, value, days){
-		// 	var expires = "";
-		// 	if (days) {
-		// 		var date = new Date();
-		// 		date.setTime(date.getTime()+(days*24*60*60*1000));
-		// 		expires = "; expires="+date.toGMTString();
-		// 	}
-		// 	
-		// 	document.cookie = name+"="+value+expires+"; path=/";
-		// }
-		
-		// function mylogin(username, userpassword, callback){
-		// 	console.log('logging in user...' + username + ':' + userpassword);
-		// 	console.log('foobar');
-		// 	$.ajax(
-		// 		{
-		// 			method: 'POST',
-		// 			url: authendpoint,
-		// 			data: { name: username, password: userpassword },
-		// 			xhrFields: {
-		// 				withCredentials: true
-		// 			}
-		// 		}
-		// 	).done( function(msg){
-		// 		createCookie(cookiename, msg.token, 10);
-		// 		//callback('rpauth', msg.token, 1);
-		// 		console.log('you have been logged on');
-		// 		console.log(msg);
-		// 		
-		// 	}).error(function(err){
-		// 		console.error('failed on auth call', err);
-		// 		eraseCookie(cookiename);
-		// 	});
-		// };
+
 	</script>
 
 </body>
